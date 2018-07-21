@@ -8,7 +8,8 @@ defmodule JobPortalWeb.PageController do
 
   def githubLogin(conn, params) do
     code = params["code"]
-    resp = HTTPoison.post!("https://github.com/login/oauth/access_token?client_id=bdd82a1189d62daed1e5&client_secret=25366568540371b4ecaf0a0a82697bd87df910d4&code=#{code}&accept=json",  "{\"body\": \"test\"}", [{"Content-Type", "application/json"}])
+    IO.inspect "IS it heree!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    resp = HTTPoison.post!("https://github.com/login/oauth/access_token?client_id=41f8f887360cc3177894&client_secret=51fa4a3a3eea6cbc8eea078a91730eabbcf2bf81&code=#{code}&accept=json",  "{\"body\": \"test\"}", [{"Content-Type", "application/json"}])
     responseBody = resp.body
     responseBody = String.split(responseBody, "&")
     responseBody = Enum.at(responseBody, 0)
